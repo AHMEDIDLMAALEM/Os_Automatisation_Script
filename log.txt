@@ -1,0 +1,77 @@
+2024-05-10-15-11-28 : root : INFOS : started using log file
+2024-05-10-15-11-31 : root : INFOS : access the passwords and accounts manager
+2024-05-10-15-11-43 : root : ERROR : wrong accounts file password attempt
+2024-05-10-15-12-45 : root : INFOS : access the passwords and accounts manager
+2024-05-10-15-12-51 : root : ERROR : wrong accounts file password attempt
+2024-05-10-15-13-38 : root : INFOS : access the passwords and accounts manager
+2024-05-10-15-14-02 : root : INFO : created new accounts file
+2024-05-10-15-14-02 : root : INFOS : added new account ahmedfb
+2024-05-10-19-18-25 : root : INFOS : access the passwords and accounts manager
+2024-05-10-19-18-50 : root : ERROR : wrong accounts file password attempt
+2024-05-10-19-19-12 : root : INFO : created new accounts file
+2024-05-10-19-19-12 : root : INFOS : added new account fb_ali
+2024-05-10-19-20-41 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-46-26 : root : ERROR : wrong password attempt
+2024-05-11-10-46-36 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-48-43 : root : INFOS : changed password
+2024-05-11-10-48-46 : root : INFOS : exited password manager
+2024-05-11-10-49-07 : root : ERROR : wrong password attempt
+2024-05-11-10-49-15 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-52-17 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-52-20 : root : ERROR : failed to list all accounts
+2024-05-11-10-55-42 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-55-50 : root : ERROR : wrong accounts file password attempt
+2024-05-11-10-56-15 : root : INFO : created new accounts file
+2024-05-11-10-56-15 : root : INFOS : added new account ahmedfb
+2024-05-11-10-59-08 : root : INFOS : access the passwords and accounts manager
+2024-05-11-10-59-17 : root : ERROR : wrong accounts file password attempt
+2024-05-11-11-00-02 : root : INFO : created new accounts file
+2024-05-11-11-00-02 : root : INFOS : added new account ahmedfb
+2024-05-11-11-01-14 : root : ERROR : wrong accounts file password attempt
+2024-05-11-11-01-34 : root : INFOS : added new account ali ig
+2024-05-11-11-03-09 : root : INFO : created new accounts file
+2024-05-11-11-03-09 : root : INFOS : added new account ali2
+2024-05-11-11-03-55 : root : ERROR : failed to list all accounts
+2024-05-11-11-11-08 : root : INFOS : Started a session
+2024-05-11-11-11-11 : root : INFOS : access the passwords and accounts manager
+2024-05-11-11-11-26 : root : INFOS : added new account aadazdada
+2024-05-11-11-12-17 : root : INFO : created new accounts file
+2024-05-11-11-12-17 : root : INFOS : added new account ahmedishere
+2024-05-11-11-17-41 : root : INFOS : Started a session
+2024-05-11-11-17-43 : root : INFOS : access the passwords and accounts manager
+2024-05-11-11-17-49 : root : ERROR : wrong accounts file password attempt
+2024-05-11-11-18-12 : root : INFO : created new accounts file
+2024-05-11-11-18-12 : root : INFOS : added new account azerty
+2024-05-11-11-18-54 : root : INFO : created new accounts file
+2024-05-11-11-18-54 : root : INFOS : added new account AZERTYU123456789
+2024-05-11-11-25-00 : root : INFOS : Started a session
+2024-05-11-11-25-03 : root : INFOS : access the passwords and accounts manager
+2024-05-11-11-26-48 : root : INFOS : Started a session
+2024-05-11-11-26-51 : root : INFOS : access the passwords and accounts manager
+2024-05-11-11-27-34 : root : INFOS : Started a session
+2024-05-11-11-27-37 : root : INFOS : access the passwords and accounts manager
+2024-05-11-11-28-55 : root : INFOS : added new account ahmedFB
+2024-05-11-11-30-59 : root : INFOS : added new account test
+2024-05-11-12-50-39 : root : INFOS : Started a session
+2024-05-11-12-50-47 : root : ERROR : wrong password attempt
+2024-05-11-12-50-52 : root : INFOS : Started a session
+2024-05-11-12-50-54 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-51-47 : root : INFOS : Started a session
+2024-05-11-12-51-50 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-52-22 : root : INFOS : Started a session
+2024-05-11-12-52-24 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-52-43 : root : INFOS : Started a session
+2024-05-11-12-52-45 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-53-20 : root : INFOS : Started a session
+2024-05-11-12-53-21 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-53-39 : root : INFOS : deleted account ahmedFB
+2024-05-11-12-55-22 : root : INFOS : Started a session
+2024-05-11-12-55-24 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-55-56 : root : INFOS : edited account test
+2024-05-11-12-56-03 : root : INFOS : exited list
+2024-05-11-12-57-38 : root : INFOS : Started a session
+2024-05-11-12-57-42 : root : INFOS : access the passwords and accounts manager
+2024-05-11-12-58-23 : root : INFOS : Started a session
+2024-05-11-12-58-24 : root : INFOS : access the passwords and accounts manager
+2024-05-11-13-01-39 : root : INFOS : Started a session
+2024-05-11-13-01-41 : root : INFOS : access the passwords and accounts manager
