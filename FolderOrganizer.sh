@@ -32,7 +32,7 @@ PopulateListWithFileNames(){
     if [ $# -ge 1 ]; then
     	if [ -d "$1" ]; then
 		selected_dir=$1
-	else
+	    else
 		echo "Directory does not exist"
 		return 1
         fi
@@ -64,7 +64,7 @@ PopulateListWithFileNames(){
     return 0
 }
 
-
+#
 FileOrganizer(){
 
 
@@ -147,5 +147,6 @@ MoveFileToCorrectFolder(){
     fi
     mv "$FileName" "$FolderName/"
 }
-
+echo "Starting the script $1"
 FileOrganizer $1
+
