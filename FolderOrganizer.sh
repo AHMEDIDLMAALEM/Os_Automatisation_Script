@@ -3,7 +3,7 @@
 #List that will hold the file names 
 FileNamesList=()
 
-CheckZenityDependence(){
+CheckZenityDependency(){
     package_name="zenity"
 
     #checks if the package zenity is installed
@@ -39,7 +39,7 @@ PopulateListWithFileNames(){
         fi
     else
         #checks the installation of zenity the GUI lib
-        CheckZenityDependence
+        CheckZenityDependency
         if [ $? -eq 0 ];then
             selected_dir=$(zenity --file-selection --directory --title="Select a directory ")
             #if any error occured we exit
