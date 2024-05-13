@@ -1,6 +1,11 @@
-CheckZenityDependence(){
-    package_name="zenity"
-    
+#!/bin/bash
+
+#List that will hold the file names 
+FileNamesList=()
+
+CheckDependency(){
+    package_name="$1"
+
     #checks if the package zenity is installed
     dpkg-query -W -f='${Status}\n' $package_name | grep -q 'installed'
 
@@ -24,7 +29,7 @@ CheckZenityDependence(){
 
 PopulateListWithFileNames(){	
 
-    #checks if there is a folder provided as an argument and the folder does exist  
+    #checks if there is a folder provided as an argument and the folder does exist
     if [ $# -ge 1 ]; then
     	if [ -d "$1" ]; then
 		selected_dir=$1
@@ -34,7 +39,7 @@ PopulateListWithFileNames(){
         fi
     else
         #checks the installation of zenity the GUI lib
-        CheckZenityDependence
+        CheckDependency zenity
         if [ $? -eq 0 ];then
             selected_dir=$(zenity --file-selection --directory --title="Select a directory ")
             #if any error occured we exit
@@ -59,17 +64,25 @@ PopulateListWithFileNames(){
 
     return 0
 }
+
+
 FileOrganizer(){
 
-
+    #Fills the list with file names 
     PopulateListWithFileNames $1
 
     if [ $? -eq 0 ];then
 
+        # That is the main loop that will loop through existing files 
+        # It will create categorized folders based on the extensions of existing files
+        # moves the file to the correspondent folder 
+
         for File in "${FileNamesList[@]}"; do
 
+            #get the extension from the file
             Extension=$(echo "$File" | sed 's/.*\.//' )
 
+            #a switch case that will categorize files and make them into a folder 
             case $Extension in 
                 "aif" | "cda" | "mid" | "midi" | "mp3" | "mpa" | "ogg" | "wav" | "wma" | "wpl" )
                     MoveFileToCorrectFolder "Audio"  "$File"
@@ -123,6 +136,8 @@ FileOrganizer(){
                     ;;
             esac 
         done
+
+        # if zenity exist use it to display an info else use the echo
         dpkg-query -W -f='${Status}\n' $package_name | grep -q 'installed'
 
 	    if [ $? -eq 0 ]; then
@@ -134,12 +149,18 @@ FileOrganizer(){
 }
 
 MoveFileToCorrectFolder(){
+
     FolderName=$1
     FileName=$2
+
+    #if the folder doesn't exist create a new one
     if [ ! -d "$FolderName" ]; then
         mkdir "$FolderName" 
     fi
+
+    #move the file to the folder
     mv "$FileName" "$FolderName/"
 }
 echo "Organizing files in $1"
+#calling the main function that takes a path as an argument 
 FileOrganizer $1
