@@ -85,53 +85,53 @@ FileOrganizer(){
             #a switch case that will categorize files and make them into a folder 
             case $Extension in 
                 "aif" | "cda" | "mid" | "midi" | "mp3" | "mpa" | "ogg" | "wav" | "wma" | "wpl" )
-                    MoveFileToCorrectFolder "Audio"  "$File"
+                    MoveFileToCorrectFolder "Audio"  "$File" &
                     ;;
                 "7z" | "arj" | "deb" | "pkg" | "rar" | "rpm" | "tar" | "gz" | "z" | "zip" )
-                    MoveFileToCorrectFolder "Compressed" "$File"
+                    MoveFileToCorrectFolder "Compressed" "$File" &
                     ;;
                 "dmg" | "iso" | "toast" | "vcd" )                
-                    MoveFileToCorrectFolder "Disc and media" "$File"
+                    MoveFileToCorrectFolder "Disc and media" "$File" &
                     ;;
                 "csv" | "dat" | "db" | "dbf" | "log" | "mdb" | "sav" | "sql" | "tar" | "xml" | "accdb" )
-                    MoveFileToCorrectFolder "Data and database" "$File"
+                    MoveFileToCorrectFolder "Data and database" "$File" &
                     ;;
                 "email" | "eml" | "emlx" | "msg" | "oft" | "ost" | "pst" | "vcf" )
-                    MoveFileToCorrectFolder "E-mail" "$File"
+                    MoveFileToCorrectFolder "E-mail" "$File" &
                     ;;
                 "bat" | "bin" | "com" | "exe" | "gadget" | "msi" | "sh" | "wsf" )
-                    MoveFileToCorrectFolder "Executable" "$File"
+                    MoveFileToCorrectFolder "Executable" "$File" &
                     ;;
                 "fnt" | "fon" | "otf" | "ttf" )
-                    MoveFileToCorrectFolder "Font" "$File"
+                    MoveFileToCorrectFolder "Font" "$File" &
                     ;;
                 "ai" | "bmp" | "gif" | "ico" | "jpeg" | "jpg" | "png" | "ps" | "psd" | "scr" | "svg" | "tif" | "tiff" | "webp" )
-                    MoveFileToCorrectFolder "Image" "$File"
+                    MoveFileToCorrectFolder "Image" "$File" &
                     ;;
                 "asp" | "aspx" | "cer" | "cfm" | "cgi" | "pl" | "css" | "htm" | "html" | "js" | "jsp" | "part" | "php"  | "rss" | "xhtml" )
-                    MoveFileToCorrectFolder "Web related" "$File"
+                    MoveFileToCorrectFolder "Web related" "$File" &
                     ;;
                 "key" | "odp" | "pps" | "ppt" | "pptx" )
-                    MoveFileToCorrectFolder "Presentation" "$File"
+                    MoveFileToCorrectFolder "Presentation" "$File" &
                     ;;
                 "apk" | "c" | "class" | "cpp" | "cs" | "h" | "jar" | "java" | "php" | "py" | "sh" | "swift" | "vb" )
-                    MoveFileToCorrectFolder "Programming" "$File"
+                    MoveFileToCorrectFolder "Programming" "$File" &
                     ;;
                 "ods" | "xls" | "xlsm" | "xlsx" )
-                    MoveFileToCorrectFolder "Spreadsheet" "$File"
+                    MoveFileToCorrectFolder "Spreadsheet" "$File" &
                     ;;
                 "bak" | "cab" | "cfg" | "cpl" | "cur" | "dll" | "dmp" | "drv" | "icns" | "ico" | "ini" | "msi" | "sys" | "tmp" ) 
-                    MoveFileToCorrectFolder "System related" "$File"
+                    MoveFileToCorrectFolder "System related" "$File" &
                     ;;
                 "3g2" | "3gp" | "avi" | "flv" | "h264" | "m4v" | "mkv" | "mov" | "mp4" | "mpg" | "mpeg" | "rm" | "swf" | "vob" | "webm" | "wmv" )
-                    MoveFileToCorrectFolder "Video" "$File"
+                    MoveFileToCorrectFolder "Video" "$File" &
                     ;;
                 "doc" | "docx" | "odt" | "pdf" | "rtf" | "tex" | "txt" | "wpd" )
-                    MoveFileToCorrectFolder "Word PDF TEXT" "$File"
+                    MoveFileToCorrectFolder "Word PDF TEXT" "$File" &
                     ;;
                 *)
                     if [ $Extension != "lnk" ]; then
-                        MoveFileToCorrectFolder "Other" "$File"
+                        MoveFileToCorrectFolder "Other" "$File" &
                     fi
                     ;;
             esac 
