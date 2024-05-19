@@ -87,7 +87,9 @@ change_log_file(){
 }
 execute_script_in_fork()
 {
+    // loop through the arguments and execute the script in fork
     echo "Executing script in fork"
+    
 }
 execute_script_in_thread()
 {
@@ -125,6 +127,12 @@ while getopts "o:hftl:r:pc:" opt; do
         f ) # process option f
             f_set=true
             execute_script_in_fork
+            // loop through the arguments and execute the script in fork
+            echo "Executing spt in fork"
+            // exclude -f from the arguments and gather the rest in a variable
+            // run the fork.c file with the gathered arguments
+            echo "Executing fork.c $parameters "
+            ./fork.c $parameters            
             ;;
         t ) # process option t
             t_set=true
