@@ -160,3 +160,105 @@
 2024-05-19-15-29-02 :  : INFOS : Started a session
 2024-05-19-15-29-57 :  : INFOS : Started a session
 2024-05-19-15-31-16 :  : INFOS : Started a session
+2024-05-19-20-54-23 : root : INFOS : Started a session
+2024-05-19-20-54-36 : root : INFOS : Started a session
+2024-05-19-20-55-02 : root : INFOS : Started a session
+2024-05-19-20-55-20 : root : INFOS : access the passwords and accounts manager
+2024-05-19-20-55-38 : root : INFOS : Started a session
+2024-05-19-20-56-31 : root : INFOS : Started a session
+2024-05-19-21-00-42 : root : INFOS : Started a session
+2024-05-19-21-01-50 : root : INFOS : Started a session
+2024-05-19-21-04-56 : root : INFOS : Started a session
+2024-05-19-21-06-11 : root : INFOS : Started a session
+2024-05-19-21-06-26 : root : INFOS : Started a session
+2024-05-19-21-06-47 : root : INFOS : Started a session
+2024-05-19-21-07-02 : root : INFOS : Started a session
+2024-05-19-21-11-10 : root : INFOS : Started a session
+2024-05-19-21-11-10 : root : ERROR : .env file was not found
+2024-05-19-21-13-10 : root : INFOS : Started a session
+2024-05-19-21-13-10 : root : ERROR : .env file was not found
+2024-05-19-21-14-52 : root : INFOS : Started a session
+2024-05-19-21-15-02 : root : INFOS : Started a session
+2024-05-19-21-15-02 : root : ERROR : .env file was not found
+2024-05-19-21-15-44 : root : INFOS : Started a session
+2024-05-19-21-15-45 : root : ERROR : .env file was not found
+2024-05-19-21-17-32 : root : INFOS : Started a session
+2024-05-19-21-17-32 : root : ERROR : .env file was not found
+2024-05-19-21-18-16 : root : INFOS : Started a session
+2024-05-19-21-18-16 : root : ERROR : .env file was not found
+2024-05-19-21-19-26 : root : INFOS : Started a session
+2024-05-19-21-19-26 : root : ERROR : .env file was not found
+2024-05-19-21-21-34 : root : INFOS : Started a session
+2024-05-19-21-21-34 : root : ERROR : .env file was not found
+2024-05-19-21-24-20 : root : INFOS : Started a session
+2024-05-19-21-24-20 : root : ERROR : .env file was not found
+2024-05-19-21-26-17 : root : INFOS : Started a session
+2024-05-19-21-26-18 : root : ERROR : .env file was not found
+2024-05-19-21-30-39 : root : INFOS : Started a session
+2024-05-19-21-30-39 : root : ERROR : .env file was not found
+2024-05-19-21-31-54 : root : INFOS : Started a session
+2024-05-19-21-32-17 : root : INFOS : Started a session
+2024-05-19-21-32-38 : root : INFOS : Started a session
+2024-05-19-21-32-38 : root : ERROR : .env file was not found
+2024-05-19-21-34-29 : root : INFOS : Started a session
+2024-05-19-21-34-29 : root : ERROR : .env file was not found
+2024-05-19-21-35-10 : root : INFOS : Started a session
+2024-05-19-21-35-10 : root : ERROR : .env file was not found
+2024-05-19-21-35-54 : root : INFOS : Started a session
+2024-05-19-21-35-54 : root : ERROR : .env file was not found
+2024-05-19-21-37-50 : root : INFOS : Started a session
+2024-05-19-21-37-50 : root : ERROR : .env file was not found
+2024-05-19-21-38-36 : root : INFOS : Started a session
+2024-05-19-21-38-36 : root : ERROR : .env file was not found
+2024-05-19-21-43-58 : root : INFOS : Started a session
+2024-05-19-21-43-58 : root : ERROR : .env file was not found
+2024-05-19-21-45-30 : root : INFOS : Started a session
+2024-05-19-21-45-30 : root : ERROR : .env file was not found
+2024-05-19-21-46-31 : root : INFOS : Started a session
+2024-05-19-21-46-31 : root : ERROR : .env file was not found
+2024-05-19-21-47-28 : root : INFOS : Started a session
+2024-05-19-21-47-28 : root : ERROR : .env file was not found
+2024-05-19-21-48-11 : root : INFOS : Started a session
+2024-05-19-21-48-11 : root : ERROR : .env file was not found
+2024-05-19-21-49-44 : root : INFOS : Started a session
+2024-05-19-21-49-44 : root : ERROR : .env file was not found
+2024-05-19-21-50-25 : root : INFOS : Started a session
+2024-05-19-21-50-25 : root : ERROR : .env file was not found
+2024-05-19-21-50-50 : root : INFOS : Started a session
+2024-05-19-21-51-11 : root : INFOS : Started a session
+2024-05-19-21-51-28 : root : INFOS : Started a session
+2024-05-19-21-53-05 : root : INFOS : Started a session
+2024-05-19-21-53-21 : root : INFOS : Started a session
+2024-05-19-21-53-44 : root : INFOS : Started a session
+2024-05-19-21-53-44 : root : ERROR : .env file was not found
+2024-05-19-21-57-16 : root : INFOS : Started a session
+2024-05-19-21-57-16 : root : ERROR : .env file was not found
+2024-05-19-21-57-55 : root : INFOS : Started a session
+2024-05-19-21-57-55 : root : ERROR : .env file was not found
+2024-05-19-21-59-50 : root : INFOS : Started a session
+2024-05-19-21-59-50 : root : ERROR : .env file was not found
+2024-05-19-22-00-59 : root : INFOS : Started a session
+2024-05-19-22-00-59 : root : ERROR : .env file was not found
+2024-05-19-22-01-20 : root : INFOS : access the passwords and accounts manager
+2024-05-19-22-02-33 : root : INFOS : Started a session
+2024-05-19-22-02-33 : root : ERROR : .env file was not found
+2024-05-19-22-03-49 : root : INFOS : Started a session
+2024-05-19-22-03-51 : root : ERROR : .env file was not found
+2024-05-19-22-04-30 : root : INFOS : Started a session
+2024-05-19-22-04-35 : root : ERROR : .env file was not found
+2024-05-19-22-07-20 : root : INFOS : Started a session
+2024-05-19-22-07-25 : root : ERROR : .env file was not found
+2024-05-19-22-10-45 : root : INFOS : Started a session
+2024-05-19-22-10-50 : root : ERROR : .env file was not found
+2024-05-19-22-15-15 : root : INFOS : Started a session
+2024-05-19-22-15-20 : root : ERROR : .env file was not found
+2024-05-19-22-18-49 : root : INFOS : Started a session
+2024-05-19-22-18-54 : root : ERROR : .env file was not found
+2024-05-19-22-20-02 : root : INFOS : Started a session
+2024-05-19-22-20-07 : root : ERROR : .env file was not found
+2024-05-19-22-21-30 : root : INFOS : Started a session
+2024-05-19-22-21-35 : root : ERROR : .env file was not found
+2024-05-19-22-23-42 : root : ERROR : .env file was not found
+2024-05-19-22-24-21 : root : ERROR : .env file was not found
+2024-05-19-22-24-57 : root : INFOS : Started a session
+2024-05-19-22-25-02 : root : ERROR : .env file was not found

@@ -1,8 +1,10 @@
 #test log file in the .env
+
 loadParamaetres(){
+
     # Load environment variables from .env file
-    if [[ -f ".env" ]]; then
-        source .env
+    if [[ -f "test.env" ]]; then
+        source test.env
 
         # Check if LOG_FILE is already set in .env file
         if [[ -n "$LOG_FILE" ]]; then
@@ -10,15 +12,15 @@ loadParamaetres(){
         else
             LOG_FILE="log.txt"
             # Save log file name to .env file
-            if [[ -f ".env" ]]; then
+            if [[ -f "test.env" ]]; then
                 # Check if LOG_FILE is already set in .env file
-                if grep -q "LOG_FILE=" .env; then
-                    sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" .env
+                if grep -q "LOG_FILE=" test.env; then
+                    sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
                 else
-                    echo "LOG_FILE=$LOG_FILE" >> .env
+                    echo "LOG_FILE=$LOG_FILE" >> test.env
                 fi
             else
-                echo "LOG_FILE=$LOG_FILE" > .env
+                echo "LOG_FILE=$LOG_FILE" > test.env
             fi
             echo "$(date +"%Y-%m-%d-%H-%M-%S") : $USER : INFOS : set logfile to default, using log file" >> "$LOG_FILE"
     
@@ -32,21 +34,23 @@ loadParamaetres(){
         fi
 
         # Save log file name to .env file
-        if [[ -f ".env" ]]; then
+        if [[ -f "test.env" ]]; then
             # Check if LOG_FILE is already set in .env file
-            if grep -q "LOG_FILE=" .env; then
-                sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" .env
+            if grep -q "LOG_FILE=" test.env; then
+                sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
             else
-                echo "LOG_FILE=$LOG_FILE" >> .env
+                echo "LOG_FILE=$LOG_FILE" >> test.env
             fi
         else
-            echo "LOG_FILE=$LOG_FILE" > .env
+            echo "LOG_FILE=$LOG_FILE" > test.env
         fi
 
 
 
 
     else
+
+
         echo "script stopped .env file not found"
         if [[ ! -f "log.txt" ]]; then
             touch "log.txt"
@@ -73,22 +77,25 @@ change_log_file(){
         LOG_FILE="$logfile"
         echo "Changed log file name to $LOG_FILE"
         # Save log file name to .env file
-        if [[ -f ".env" ]]; then
+        if [[ -f "test.env" ]]; then
             # Check if LOG_FILE is already set in .env file
-            if grep -q "LOG_FILE=" .env; then
-                sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" .env
+            if grep -q "LOG_FILE=" test.env; then
+                sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
             else
-                echo "LOG_FILE=$LOG_FILE" >> .env
+                echo "LOG_FILE=$LOG_FILE" >> test.env
             fi
         else
-            echo "LOG_FILE=$LOG_FILE" > .env
+            echo "LOG_FILE=$LOG_FILE" > test.env
         fi
     fi
 }
 execute_script_in_fork()
 {
-    // loop through the arguments and execute the script in fork
-    echo "Executing script in fork"
+
+    # wait for 2s
+    sleep 5
+    # loop through the arguments and execute the script in fork
+    ./forkapp $newargs
     
 }
 execute_script_in_thread()
@@ -106,6 +113,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 loadParamaetres
+echo "---------------------Arguments: $@---------------------"
 FileNamesList=()
 
 
@@ -114,6 +122,7 @@ FileNamesList=()
 f_set=false
 t_set=false
 r_set=false
+
 
 
 while getopts "o:hftl:r:pc:" opt; do
@@ -126,13 +135,20 @@ while getopts "o:hftl:r:pc:" opt; do
             ;;
         f ) # process option f
             f_set=true
-            execute_script_in_fork
-            // loop through the arguments and execute the script in fork
-            echo "Executing spt in fork"
-            // exclude -f from the arguments and gather the rest in a variable
-            // run the fork.c file with the gathered arguments
-            echo "Executing fork.c $parameters "
-            ./fork.c $parameters            
+
+            # select only the arguments that are not -f or forkapp
+            newargs=()
+            for arg in "$@"; do
+                if [[ $arg != "-f" && $arg != "forkapp" ]]; then
+                    newargs+=("$arg")
+                fi
+            done
+            # execute the script in fork
+            execute_script_in_fork "${newargs[@]}" &
+            # exit
+            exit 0
+            
+
             ;;
         t ) # process option t
             t_set=true
