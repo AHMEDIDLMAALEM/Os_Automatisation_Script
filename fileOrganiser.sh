@@ -1,6 +1,11 @@
-CheckZenityDependence(){
-    package_name="zenity"
-    
+#!/bin/bash
+
+#List that will hold the file names 
+FileNamesList=()
+
+CheckDependency(){
+    package_name="$1"
+
     #checks if the package zenity is installed
     dpkg-query -W -f='${Status}\n' $package_name | grep -q 'installed'
 
@@ -24,7 +29,7 @@ CheckZenityDependence(){
 
 PopulateListWithFileNames(){	
 
-    #checks if there is a folder provided as an argument and the folder does exist  
+    #checks if there is a folder provided as an argument and the folder does exist
     if [ $# -ge 1 ]; then
     	if [ -d "$1" ]; then
 		selected_dir=$1
@@ -34,7 +39,7 @@ PopulateListWithFileNames(){
         fi
     else
         #checks the installation of zenity the GUI lib
-        CheckZenityDependence
+        CheckDependency zenity
         if [ $? -eq 0 ];then
             selected_dir=$(zenity --file-selection --directory --title="Select a directory ")
             #if any error occured we exit
@@ -59,70 +64,80 @@ PopulateListWithFileNames(){
 
     return 0
 }
+
+
 FileOrganizer(){
 
-
+    #Fills the list with file names 
     PopulateListWithFileNames $1
 
     if [ $? -eq 0 ];then
 
+        # That is the main loop that will loop through existing files 
+        # It will create categorized folders based on the extensions of existing files
+        # moves the file to the correspondent folder 
+
         for File in "${FileNamesList[@]}"; do
 
+            #get the extension from the file
             Extension=$(echo "$File" | sed 's/.*\.//' )
 
+            #a switch case that will categorize files and make them into a folder 
             case $Extension in 
                 "aif" | "cda" | "mid" | "midi" | "mp3" | "mpa" | "ogg" | "wav" | "wma" | "wpl" )
-                    MoveFileToCorrectFolder "Audio"  "$File"
+                    MoveFileToCorrectFolder "Audio"  "$File" &
                     ;;
                 "7z" | "arj" | "deb" | "pkg" | "rar" | "rpm" | "tar" | "gz" | "z" | "zip" )
-                    MoveFileToCorrectFolder "Compressed" "$File"
+                    MoveFileToCorrectFolder "Compressed" "$File" &
                     ;;
                 "dmg" | "iso" | "toast" | "vcd" )                
-                    MoveFileToCorrectFolder "Disc and media" "$File"
+                    MoveFileToCorrectFolder "Disc and media" "$File" &
                     ;;
                 "csv" | "dat" | "db" | "dbf" | "log" | "mdb" | "sav" | "sql" | "tar" | "xml" | "accdb" )
-                    MoveFileToCorrectFolder "Data and database" "$File"
+                    MoveFileToCorrectFolder "Data and database" "$File" &
                     ;;
                 "email" | "eml" | "emlx" | "msg" | "oft" | "ost" | "pst" | "vcf" )
-                    MoveFileToCorrectFolder "E-mail" "$File"
+                    MoveFileToCorrectFolder "E-mail" "$File" &
                     ;;
                 "bat" | "bin" | "com" | "exe" | "gadget" | "msi" | "sh" | "wsf" )
-                    MoveFileToCorrectFolder "Executable" "$File"
+                    MoveFileToCorrectFolder "Executable" "$File" &
                     ;;
                 "fnt" | "fon" | "otf" | "ttf" )
-                    MoveFileToCorrectFolder "Font" "$File"
+                    MoveFileToCorrectFolder "Font" "$File" &
                     ;;
                 "ai" | "bmp" | "gif" | "ico" | "jpeg" | "jpg" | "png" | "ps" | "psd" | "scr" | "svg" | "tif" | "tiff" | "webp" )
-                    MoveFileToCorrectFolder "Image" "$File"
+                    MoveFileToCorrectFolder "Image" "$File" &
                     ;;
                 "asp" | "aspx" | "cer" | "cfm" | "cgi" | "pl" | "css" | "htm" | "html" | "js" | "jsp" | "part" | "php"  | "rss" | "xhtml" )
-                    MoveFileToCorrectFolder "Web related" "$File"
+                    MoveFileToCorrectFolder "Web related" "$File" &
                     ;;
                 "key" | "odp" | "pps" | "ppt" | "pptx" )
-                    MoveFileToCorrectFolder "Presentation" "$File"
+                    MoveFileToCorrectFolder "Presentation" "$File" &
                     ;;
                 "apk" | "c" | "class" | "cpp" | "cs" | "h" | "jar" | "java" | "php" | "py" | "sh" | "swift" | "vb" )
-                    MoveFileToCorrectFolder "Programming" "$File"
+                    MoveFileToCorrectFolder "Programming" "$File" &
                     ;;
                 "ods" | "xls" | "xlsm" | "xlsx" )
-                    MoveFileToCorrectFolder "Spreadsheet" "$File"
+                    MoveFileToCorrectFolder "Spreadsheet" "$File" &
                     ;;
                 "bak" | "cab" | "cfg" | "cpl" | "cur" | "dll" | "dmp" | "drv" | "icns" | "ico" | "ini" | "msi" | "sys" | "tmp" ) 
-                    MoveFileToCorrectFolder "System related" "$File"
+                    MoveFileToCorrectFolder "System related" "$File" &
                     ;;
                 "3g2" | "3gp" | "avi" | "flv" | "h264" | "m4v" | "mkv" | "mov" | "mp4" | "mpg" | "mpeg" | "rm" | "swf" | "vob" | "webm" | "wmv" )
-                    MoveFileToCorrectFolder "Video" "$File"
+                    MoveFileToCorrectFolder "Video" "$File" &
                     ;;
                 "doc" | "docx" | "odt" | "pdf" | "rtf" | "tex" | "txt" | "wpd" )
-                    MoveFileToCorrectFolder "Word PDF TEXT" "$File"
+                    MoveFileToCorrectFolder "Word PDF TEXT" "$File" &
                     ;;
                 *)
                     if [ $Extension != "lnk" ]; then
-                        MoveFileToCorrectFolder "Other" "$File"
+                        MoveFileToCorrectFolder "Other" "$File" &
                     fi
                     ;;
             esac 
         done
+
+        # if zenity exist use it to display an info else use the echo
         dpkg-query -W -f='${Status}\n' $package_name | grep -q 'installed'
 
 	    if [ $? -eq 0 ]; then
@@ -134,12 +149,18 @@ FileOrganizer(){
 }
 
 MoveFileToCorrectFolder(){
+
     FolderName=$1
     FileName=$2
+
+    #if the folder doesn't exist create a new one
     if [ ! -d "$FolderName" ]; then
         mkdir "$FolderName" 
     fi
+
+    #move the file to the folder
     mv "$FileName" "$FolderName/"
 }
 echo "Organizing files in $1"
+#calling the main function that takes a path as an argument 
 FileOrganizer $1
