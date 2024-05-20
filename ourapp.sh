@@ -139,22 +139,11 @@ while getopts "o:hftl:r:pc:" opt; do
             # select only the arguments that are not -f or forkapp
             newargs=()
             for arg in "$@"; do
-            if [[ $arg != "-f" && $arg != "forkapp" ]]; then
-                if [[ $arg == "-o" ]]; then
-                echo " in -o:"
-                newargs+=("$arg")
-                newargs+=("$OPTARG")
-                elif [[ $arg == "-c" ]]; then
-                echo " in -c:"
-                newargs+=("$arg")
-                newargs+=("$OPTARG")
-                else
-                newargs+=("$arg")
+                if [[ $arg != "-f" && $arg != "forkapp" ]]; then
+                    newargs+=("$arg")
                 fi
-            fi
             done
             # execute the script in fork
-            echo "Executing script in fork $newargs"
             execute_script_in_fork "${newargs[@]}" &
             # exit
             exit 0
