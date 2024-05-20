@@ -262,3 +262,58 @@
 2024-05-19-22-24-21 : root : ERROR : .env file was not found
 2024-05-19-22-24-57 : root : INFOS : Started a session
 2024-05-19-22-25-02 : root : ERROR : .env file was not found
+2024-05-20-00-12-51 : root : INFOS : Started a session
+2024-05-20-00-12-57 : root : INFOS : Started a session
+2024-05-20-00-13-02 : root : ERROR : .env file was not found
+2024-05-20-00-17-49 : root : INFOS : Started a session
+2024-05-20-00-17-54 : root : ERROR : .env file was not found
+2024-05-20-00-17-54 : root : ERROR : .env file was not found
+2024-05-20-00-21-13 : root : INFOS : Started a session
+2024-05-20-00-21-18 : root : ERROR : .env file was not found
+2024-05-20-00-21-18 : root : ERROR : .env file was not found
+2024-05-20-00-42-24 : root : INFOS : Started a session
+2024-05-20-00-42-29 : root : ERROR : .env file was not found
+2024-05-20-00-42-29 : root : ERROR : .env file was not found
+2024-05-20-00-43-14 : root : INFOS : Started a session
+2024-05-20-00-43-19 : root : ERROR : .env file was not found
+2024-05-20-00-43-19 : root : ERROR : .env file was not found
+2024-05-20-00-43-34 : root : INFOS : Started a session
+2024-05-20-00-43-39 : root : ERROR : .env file was not found
+2024-05-20-00-43-39 : root : ERROR : .env file was not found
+2024-05-20-00-44-11 : root : INFOS : Started a session
+2024-05-20-00-44-16 : root : ERROR : .env file was not found
+2024-05-20-00-44-16 : root : ERROR : .env file was not found
+2024-05-20-00-50-17 : root : INFOS : Started a session
+2024-05-20-00-50-22 : root : ERROR : .env file was not found
+2024-05-20-00-52-15 : root : INFOS : Started a session
+2024-05-20-00-52-20 : root : ERROR : .env file was not found
+2024-05-20-00-56-49 : root : INFOS : Started a session
+2024-05-20-00-56-54 : root : ERROR : .env file was not found
+2024-05-20-01-14-06 : root : INFOS : Started a session
+2024-05-20-01-14-46 : root : INFOS : Started a session
+2024-05-20-01-14-51 : root : INFOS : set logfile to default, using log file
+2024-05-20-01-21-04 : root : INFOS : Started a session
+2024-05-20-01-21-10 : root : INFOS : set logfile to default, using log file
+2024-05-20-01-24-48 : root : INFOS : Started a session
+2024-05-20-01-24-53 : root : INFOS : Started a session
+2024-05-20-01-24-53 : root : ERROR : wrong password attempt
+2024-05-20-01-29-55 : root : INFOS : Started a session
+2024-05-20-01-30-00 : root : INFOS : Started a session
+2024-05-20-01-30-00 : root : ERROR : wrong password attempt
+2024-05-20-01-30-10 : root : INFOS : Started a session
+2024-05-20-01-30-15 : root : INFOS : Started a session
+2024-05-20-01-30-35 : root : INFOS : Started a session
+2024-05-20-01-30-40 : root : INFOS : Started a session
+2024-05-20-01-39-47 : root : INFOS : Started a session
+2024-05-20-01-39-52 : root : INFOS : Started a session
+2024-05-20-01-42-05 : root : INFOS : Started a session
+2024-05-20-01-42-11 : root : INFOS : Started a session
+2024-05-20-01-43-45 : root : INFOS : Started a session
+2024-05-20-01-43-50 : root : INFOS : Started a session
+2024-05-20-01-44-40 : root : INFOS : Started a session
+2024-05-20-01-46-44 : root : INFOS : Started a session
+2024-05-20-01-49-22 : root : INFOS : Started a session
+2024-05-20-01-50-53 : root : INFOS : Started a session
+2024-05-20-01-53-22 : root : INFOS : Started a session
+2024-05-20-01-54-19 : root : INFOS : Started a session
+2024-05-20-01-55-02 : root : INFOS : Started a session

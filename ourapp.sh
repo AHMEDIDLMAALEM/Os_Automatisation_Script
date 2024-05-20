@@ -1,18 +1,18 @@
+#!/bin/bash
 #test log file in the .env
-
+echo "---------------------Arguments: $@---------------------"
 loadParamaetres(){
-
     # Load environment variables from .env file
-    if [[ -f "test.env" ]]; then
+    if [ -f "test.env" ]; then
         source test.env
 
         # Check if LOG_FILE is already set in .env file
-        if [[ -n "$LOG_FILE" ]]; then
+        if [ -n "$LOG_FILE" ]; then
             echo "$(date +"%Y-%m-%d-%H-%M-%S") : $USER : INFOS : Started a session" >> "$LOG_FILE"
         else
             LOG_FILE="log.txt"
             # Save log file name to .env file
-            if [[ -f "test.env" ]]; then
+            if [ -f "test.env" ]; then
                 # Check if LOG_FILE is already set in .env file
                 if grep -q "LOG_FILE=" test.env; then
                     sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
@@ -28,13 +28,13 @@ loadParamaetres(){
 
 
         # create the lg file if not existant and write a message of this format to it  yyyy-mm-dd-hh-mm-ss : username : INFOS : started usin log file 
-        if [[ ! -f "$LOG_FILE" ]]; then
+        if [ ! -f "$LOG_FILE" ]; then
             touch "$LOG_FILE"
             echo "$(date +"%Y-%m-%d-%H-%M-%S") : $USER : INFOS : started using log file" >> "$LOG_FILE"
         fi
 
         # Save log file name to .env file
-        if [[ -f "test.env" ]]; then
+        if [ -f "test.env" ]; then
             # Check if LOG_FILE is already set in .env file
             if grep -q "LOG_FILE=" test.env; then
                 sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
@@ -52,7 +52,7 @@ loadParamaetres(){
 
 
         echo "script stopped .env file not found"
-        if [[ ! -f "log.txt" ]]; then
+        if [ ! -f "log.txt" ]; then
             touch "log.txt"
         fi
         echo "$(date +"%Y-%m-%d-%H-%M-%S") : $USER : ERROR : .env file was not found" >> "log.txt"
@@ -73,11 +73,11 @@ printHelp(){
 change_log_file(){
     logfile=$1
     # Change log file name if specified as command line argument
-    if [[ -n "$logfile" ]]; then
+    if [ -n "$logfile" ]; then
         LOG_FILE="$logfile"
         echo "Changed log file name to $LOG_FILE"
         # Save log file name to .env file
-        if [[ -f "test.env" ]]; then
+        if [ -f "test.env" ]; then
             # Check if LOG_FILE is already set in .env file
             if grep -q "LOG_FILE=" test.env; then
                 sed -i "s/LOG_FILE=.*/LOG_FILE=$LOG_FILE/" test.env
@@ -107,13 +107,13 @@ execute_script_in_thread()
 
 
 #!/bin/bash
-if [[ $# -eq 0 ]]; then
+if [ $# -eq 0 ]; then
     echo "Usage: Command [-h] [-f] [-t] [-l LOGFILE] [-r PARAMETERS]"
     exit 1
 fi
 
 loadParamaetres
-echo "---------------------Arguments: $@---------------------"
+
 FileNamesList=()
 
 
@@ -139,11 +139,22 @@ while getopts "o:hftl:r:pc:" opt; do
             # select only the arguments that are not -f or forkapp
             newargs=()
             for arg in "$@"; do
-                if [[ $arg != "-f" && $arg != "forkapp" ]]; then
-                    newargs+=("$arg")
+            if [[ $arg != "-f" && $arg != "forkapp" ]]; then
+                if [[ $arg == "-o" ]]; then
+                echo " in -o:"
+                newargs+=("$arg")
+                newargs+=("$OPTARG")
+                elif [[ $arg == "-c" ]]; then
+                echo " in -c:"
+                newargs+=("$arg")
+                newargs+=("$OPTARG")
+                else
+                newargs+=("$arg")
                 fi
+            fi
             done
             # execute the script in fork
+            echo "Executing script in fork $newargs"
             execute_script_in_fork "${newargs[@]}" &
             # exit
             exit 0
@@ -167,7 +178,7 @@ while getopts "o:hftl:r:pc:" opt; do
                 read -s tmp_var
                 # Encrypt password as MD5
                 encrypted_password=$(echo -n "$tmp_var" | md5sum | awk '{print $1}')
-                if [[ $encrypted_password != $PASSWORD ]]; then
+                if [ $encrypted_password != $PASSWORD ]; then
                     # exit if password is not correct after writing to log file
                     echo "$(date +"%Y-%m-%d-%H-%M-%S") : $USER : ERROR : wrong password attempt" >> "$LOG_FILE"
                     exit 1
