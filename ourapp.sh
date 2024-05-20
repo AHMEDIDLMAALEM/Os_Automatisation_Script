@@ -92,7 +92,7 @@ change_log_file(){
 execute_script_in_fork()
 {
 
-    # wait for 2s
+    # wait for 5s
     sleep 5
     # loop through the arguments and execute the script in fork
     ./forkapp $conctaenated_new_args
@@ -100,7 +100,10 @@ execute_script_in_fork()
 }
 execute_script_in_thread()
 {
-    echo "Executing script in thread"
+    # wait for 5s
+    sleep 5
+    # loop through the arguments and execute the script in fork
+    ./threadapp $conctaenated_new_args
 }
 
 
@@ -138,22 +141,22 @@ while getopts "o:hftl:r:pc:" opt; do
 
             # select only the arguments that are not -f or forkapp
             newargs=()
-            echo $@
+            # echo $@
             args=("$@")
             for ((i=0; i<$#; i++)); do
                 current_arg=${args[$i]}
                 next_arg=${args[$((i+1))]}
                 if [[ $current_arg != "-f"  ]]; then 
                     newargs+=("$current_arg")
-                    echo " $i :: current arg $current_arg , next arg $next_arg , newargs $newargs"
+                    # echo " $i :: current arg $current_arg , next arg $next_arg , newargs $newargs"
                 fi
             done
             conctaenated_new_args=$(IFS=" "; echo "${newargs[*]}")
 
-            for element in "${newargs[@]}"
-            do
-                echo "$element"
-            done
+            # for element in "${newargs[@]}"
+            # do
+            #     echo "$element"
+            # done
             
             
             # execute the script in fork
@@ -166,7 +169,33 @@ while getopts "o:hftl:r:pc:" opt; do
             ;;
         t ) # process option t
             t_set=true
-            execute_script_in_thread
+            # select only the arguments that are not -f or forkapp
+            newargs=()
+            # echo $@
+            args=("$@")
+            for ((i=0; i<$#; i++)); do
+                current_arg=${args[$i]}
+                next_arg=${args[$((i+1))]}
+                if [[ $current_arg != "-t"  ]]; then 
+                    newargs+=("$current_arg")
+                    # echo " $i :: current arg $current_arg , next arg $next_arg , newargs $newargs"
+                fi
+            done
+            conctaenated_new_args=$(IFS=" "; echo "${newargs[*]}")
+
+            # for element in "${newargs[@]}"
+            # do
+            #     echo "$element"
+            # done
+            
+            
+            # execute the script in fork
+            echo "Executing script in thread $conctaenated_new_args"
+            execute_script_in_thread "$conctaenated_new_args" &
+            sleep 180
+            # exit
+            exit 0
+ 
             ;;
         l ) # process option l
             change_log_file $OPTARG

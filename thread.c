@@ -4,36 +4,47 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <string.h>
+#include <pthread.h>
+
+
+
+void *thread_function(void *arg)
+{
+  char **arg_list = (char **)arg;
+  printf("in thread with program: ./ouraapp, and arglist: %s, %s, %s\n", arg_list[0], arg_list[1], arg_list[2]);
+
+  // concatenate arg_list 0 and 1 to form a single string
+  char *args = malloc(strlen(arg_list[1]) + strlen(arg_list[2]) + 1);
+  strcpy(args, arg_list[1]);
+  strcat(args, arg_list[2]);
+  arg_list[0] = args;
+
+  execvp("./ourapp", arg);
+  printf("execution has finished******************");
+  fprintf(stderr, "an error occurred within execvp\n");
+  pthread_exit(NULL);
+}
 
 int spawn(char *program, char **arg_list)
 {
-  
-  pid_t child_pid;
-  child_pid = fork();
-  if (child_pid != 0)
+  pthread_t thread;
+  int result = pthread_create(&thread, NULL, thread_function, (void *)arg_list);
+  if (result != 0)
   {
-    printf("PID du processus parent : %d\n", getpid());
-    
-    // execvp(program, arg_list);
-    wait(NULL);
-    return child_pid;
+    fprintf(stderr, "failed to create thread\n");
+    return -1;
   }
-  else
+
+  result = pthread_join(thread, NULL);
+  if (result != 0)
   {
-    // execute program with arg_list[0] as argument list on linux
-    printf("PID du processus enfant : %d\n", getpid());
-    
-    char *args = malloc(strlen(arg_list[1]) + strlen(arg_list[2]) + 1);
-    strcpy(args, arg_list[1]);
-    strcat(args, arg_list[2]);
-    arg_list[0] = args;
-
-
-    execvp(program, arg_list);
-    fprintf(stderr, "une erreur est survenue au sein de execvp\n");
-    abort();
+    fprintf(stderr, "failed to join thread\n");
+    return -1;
   }
+
+  return 0;
 }
+
 
 int main(int argc, char *argv[])
 {
