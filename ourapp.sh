@@ -95,7 +95,7 @@ execute_script_in_fork()
     # wait for 2s
     sleep 5
     # loop through the arguments and execute the script in fork
-    ./forkapp $newargs
+    ./forkapp $conctaenated_new_args
     
 }
 execute_script_in_thread()
@@ -138,13 +138,27 @@ while getopts "o:hftl:r:pc:" opt; do
 
             # select only the arguments that are not -f or forkapp
             newargs=()
-            for arg in "$@"; do
-                if [[ $arg != "-f" && $arg != "forkapp" ]]; then
-                    newargs+=("$arg")
+            echo $@
+            args=("$@")
+            for ((i=0; i<$#; i++)); do
+                current_arg=${args[$i]}
+                next_arg=${args[$((i+1))]}
+                if [[ $current_arg != "-f"  ]]; then 
+                    newargs+=("$current_arg")
+                    echo " $i :: current arg $current_arg , next arg $next_arg , newargs $newargs"
                 fi
             done
+            conctaenated_new_args=$(IFS=" "; echo "${newargs[*]}")
+
+            for element in "${newargs[@]}"
+            do
+                echo "$element"
+            done
+            
+            
             # execute the script in fork
-            execute_script_in_fork "${newargs[@]}" &
+            echo "Executing script in fork $conctaenated_new_args"
+            execute_script_in_fork "$conctaenated_new_args" &
             # exit
             exit 0
             
