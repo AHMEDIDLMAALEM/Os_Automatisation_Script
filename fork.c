@@ -26,26 +26,22 @@ int spawn(char *program, char **arg_list)
 
     printf("execution a commence******************");
     // concatenate arg_list 0 and 1 to form a single string
-    char *args = malloc(strlen(arg_list[0]) + strlen(arg_list[1]) + 1);
-    strcpy(args, arg_list[0]);
-    strcat(args, arg_list[1]);
+    char *args = malloc(strlen(arg_list[1]) + strlen(arg_list[2]) + 1);
+    strcpy(args, arg_list[1]);
+    strcat(args, arg_list[2]);
     arg_list[0] = args;
 
 
-    execvp(program, &args);
+    execvp(program, arg_list);
     printf("execution a finie******************");
-    // fprintf(stderr, "une erreur est survenue au sein de execvp\n");
-    // abort();
+    fprintf(stderr, "une erreur est survenue au sein de execvp\n");
+    abort();
   }
 }
 
 int main(int argc, char *argv[])
 {
-
-  for(int i = 0; i < argc; i++)
-  {
-    printf("argv[%d] = %s\n", i, argv[i]);
-  }
+  
   
   if (argc < 2)
   {
@@ -60,8 +56,7 @@ int main(int argc, char *argv[])
     arg_list[0] = "ourapp.sh"; // The first argument is the program's name
     arg_list[1] = argv[1];
     arg_list[2] = argv[2];
-    arg_list[3] = argv[3]; // 
-    arg_list[4] = NULL; // Add a NULL terminator at the end of the array
+    arg_list[3] = NULL; // Add a NULL terminator at the end of the array
   }
   else
   {
